@@ -1,0 +1,31 @@
+body{
+    font-family:Arial,sans-serif;
+    background-color: #f7f7f7;
+    margin:0;
+    padding:0;
+}
+header{
+    background:#4caf50;
+    color:white;
+    text-align:centre;
+    padding:40px 0;
+}
+section{
+    max-width:800px;
+    margin:30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+h2{
+    color:#333;
+
+}
+ul{
+    list-style-type:square;
+}
+.project-card{
+    background:#e8e8e8;
+    padding: 10px;
+    border-radius:5px
+}
