@@ -1,0 +1,71 @@
+/* ---- GLOBAL ---- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0d1117;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* ---- HEADER ---- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 20px;
+    color: #9ba3af;
+    margin-top: -5px;
+}
+
+.college-logo {
+    width: 120px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* ---- OPTIONS ---- */
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* Simple Modern Button Card */
+.option-card {
+    text-decoration: none;
+    background: #161b22;
+    padding: 20px 40px;
+    border-radius: 14px;
+    color: #58a6ff;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.25s ease;
+    border: 1px solid #30363d;
+}
+
+/* Smooth Hover */
+.option-card:hover {
+    background: #1f2937;
+    border-color: #3b82f6;
+    transform: translateY(-4px);
+}
+
+/* ---- FOOTER ---- */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px 10px;
+    color: #9ba3af;
+    font-size: 14px;
+    border-top: 1px solid #30363d;
+}
