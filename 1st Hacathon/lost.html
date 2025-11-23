@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Item Form</title>
+    <link rel="stylesheet" href="lost.css">
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Lost Item Report</h2>
+        <p class="subtitle">Please submit the details of the item you have lost.</p>
+
+        <form>
+            <label>Item Name</label>
+            <input type="text" placeholder="Enter item name" required>
+
+            <label>Last Seen Location</label>
+            <input type="text" placeholder="Where did you last see it?" required>
+
+            <label>Date Lost</label>
+            <input type="date" required>
+
+            <label>Description</label>
+            <textarea placeholder="Describe your lost item" required></textarea>
+
+            <!-- Upload Picture -->
+            <label>Upload Item Picture (Optional)</label>
+            <input type="file" accept="image/*" class="file-input" id="uploadImage" required>
+
+            <!-- Preview Box -->
+            <div class="preview-box">
+                <img id="previewImage" src="" alt="Preview will appear here">
+            </div>
+
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <label>Contact Number</label>
+            <input type="text" placeholder="Enter your contact number" required>
+
+            <button type="submit" class="btn">Submit Report</button>
+        </form>
+    </div>
+
+    <!-- IMAGE PREVIEW SCRIPT -->
+    <script>
+        const upload = document.getElementById("uploadImage");
+        const preview = document.getElementById("previewImage");
+
+        upload.addEventListener("change", () => {
+            const file = upload.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+</html>
