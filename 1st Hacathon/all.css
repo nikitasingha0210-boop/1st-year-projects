@@ -1,0 +1,110 @@
+body {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0b0b0b;
+    color: #e8e8e8;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background: #141414;
+    border-bottom: 2px solid #2a6cff;
+}
+
+header h1 {
+    color: #3d8bff;
+}
+
+/* Buttons */
+.button-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.filter-btn {
+    background: #1f1f1f;
+    padding: 12px 25px;
+    color: #5aa8ff;
+    border: 2px solid #2a6cff;
+    border-radius: 10px;
+    margin: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: #2a6cff;
+    color: white;
+}
+
+/* Items section */
+.items-section {
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.placeholder-text {
+    color: #a0a0a0;
+    font-size: 17px;
+}
+
+/* Empty box */
+.empty-box {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 4px solid #2a6cff;
+}
+
+.empty-box h3 {
+    color: #4ea1ff;
+}
+
+/* Feedback form */
+.feedback-section {
+    background: #141414;
+    padding: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.feedback-section textarea {
+    width: 70%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #2a6cff;
+    background: #0d0d0d;
+    color: white;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    background: #2a6cff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #1e54c9;
+}
+
+/* Footer */
+footer {
+    background: #141414;
+    padding: 18px;
+    text-align: center;
+    border-top: 2px solid #2a6cff;
+    margin-top: 40px;
+}
