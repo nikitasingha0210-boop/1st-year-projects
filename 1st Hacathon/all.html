@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Items</title>
+    <link rel="stylesheet" href="all.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>All Items</h1>
+        <h2>Lost & Found Items Portal</h2>
+    </header>
+
+    <!-- FILTER BUTTONS -->
+    <div class="button-container">
+        <button id="showLost" class="filter-btn">Lost Items</button>
+        <button id="showFound" class="filter-btn">Found Items</button>
+    </div>
+
+    <!-- ITEMS SECTION -->
+    <section class="items-section" id="itemsSection">
+        <p class="placeholder-text">Click a button above to view items.</p>
+    </section>
+
+    <!-- FEEDBACK FORM -->
+    <section class="feedback-section">
+        <h2>Feedback</h2>
+        <p>How is this website helping you?</p>
+
+        <form id="feedbackForm">
+            <textarea placeholder="Write your feedback..." required></textarea>
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Campus Lost & Found Management System</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const itemsSection = document.getElementById("itemsSection");
+
+        document.getElementById("showLost").onclick = () => {
+            itemsSection.innerHTML = `
+                <div class="empty-box">
+                    <h3>No Lost Items Available</h3>
+                    <p>Lost items will appear here when students report them.</p>
+                </div>
+            `;
+        };
+
+        document.getElementById("showFound").onclick = () => {
+            itemsSection.innerHTML = `
+                <div class="empty-box">
+                    <h3>No Found Items Available</h3>
+                    <p>Found items will appear here when students submit them.</p>
+                </div>
+            `;
+        };
+
+        // FEEDBACK FORM
+        document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your feedback!");
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
