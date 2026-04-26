@@ -1,22 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Study Planner</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <h1>📚 AI Study Planner</h1>
+  <!-- Background decorative blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
 
-  <div class="container">
-    <p>Chemistry • Mathematics • Physics • Computer Application • English • Hindi</p>
+  <div class="app">
 
-    <input id="hours" type="number" placeholder="Enter total study hours">
-    <button onclick="generatePlan()">Generate Plan</button>
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="logo-badge">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">StudyAI</span>
+      </div>
+
+      <div class="hero-text">
+        <h1 class="app-title">
+          Your Smart<br/>
+          <span class="highlight">Study Planner</span>
+        </h1>
+        <p class="subtitle">
+          Tell us how many hours you have — our AI builds your perfect plan in seconds.
+        </p>
+      </div>
+
+      <!-- Floating stats pills -->
+      <div class="stats-row">
+        <div class="stat-pill">
+          <span class="stat-icon">⚡</span>
+          <span>AI-Powered</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-icon">🎯</span>
+          <span>Personalized</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-icon">📈</span>
+          <span>Optimized</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Input Card -->
+    <main class="planner-card">
+      <div class="card-label">
+        <span class="label-dot"></span>
+        Ready to plan
+      </div>
+
+      <h2 class="card-title">How many hours can you study today?</h2>
+      <p class="card-desc">Enter your available time and we'll structure it for maximum focus and retention.</p>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <span class="input-icon">🕐</span>
+          <input
+            id="hours"
+            type="number"
+            min="1"
+            max="24"
+            placeholder="e.g. 6"
+            aria-label="Study hours"
+          />
+          <span class="input-unit">hrs</span>
+        </div>
+
+        <button class="generate-btn" onclick="generatePlan()">
+          <span class="btn-text">Generate My Plan</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+      <!-- Quick select chips -->
+      <div class="quick-select">
+        <span class="quick-label">Quick pick:</span>
+        <button class="chip" onclick="setHours(2)">2h</button>
+        <button class="chip" onclick="setHours(4)">4h</button>
+        <button class="chip" onclick="setHours(6)">6h</button>
+        <button class="chip" onclick="setHours(8)">8h</button>
+      </div>
+    </main>
+
+    <!-- Output Section -->
+    <section id="output" class="output-section" aria-live="polite"></section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Powered by <strong>Claude AI</strong> · Study smarter, not harder.</p>
+    </footer>
+
   </div>
 
-  <div id="output"></div>
-
   <script src="script.js"></script>
+  <script>
+    function setHours(n) {
+      document.getElementById('hours').value = n;
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
