@@ -1,0 +1,32 @@
+body {
+  background: #0d0d0d;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+}
+
+h1 {
+  color: red;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  background: #1a1a1a;
+  margin: 10px auto;
+  padding: 15px;
+  width: 300px;
+  border-radius: 10px;
+}
