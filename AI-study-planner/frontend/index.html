@@ -1,113 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eduvora</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <title>Eduvora — AI Study Planner</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <!-- Background decorative blobs -->
-  <div class="bg-blob blob-1"></div>
-  <div class="bg-blob blob-2"></div>
-  <div class="bg-blob blob-3"></div>
+  <!-- ===================== LANDING PAGE ===================== -->
+  <div id="page-landing" class="page active">
 
-  <div class="app">
-
-    <!-- Header Section -->
-    <header class="app-header">
-      <div class="logo-badge">
-        <span class="logo-icon">✦</span>
-        <span class="logo-text">Eduvora</span>
+    <!-- Navbar -->
+    <nav class="land-nav">
+      <div class="land-logo">
+        <span class="logo-mark">E</span>
+        <span>Eduvora</span>
       </div>
+      <div class="land-nav-links">
+        <button class="btn-ghost" onclick="showPage('login')">Login</button>
+        <button class="btn-primary" onclick="showPage('signup')">Get Started</button>
+      </div>
+    </nav>
 
-      <div class="hero-text">
-        <h1 class="app-title">
-          <br/>
-          <span class="highlight">Eduvora</span>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">✦ AI-Powered Learning</div>
+        <h1 class="hero-title">
+          Plan Smarter,<br/>
+          <span class="grad-text">Study Better</span>
         </h1>
-        <p class="subtitle">
-          Tell us how many hours you have — our AI builds your perfect plan in seconds.
+        <p class="hero-sub">
+          Eduvora uses AI to build personalized study plans, track your progress,
+          and help you hit your academic goals — effortlessly.
         </p>
-      </div>
-
-      <!-- Floating stats pills -->
-      <div class="stats-row">
-        <div class="stat-pill">
-          <span class="stat-icon">⚡</span>
-          <span>AI-Powered</span>
+        <div class="hero-cta">
+          <button class="btn-primary btn-lg" onclick="showPage('signup')">
+            Start For Free <span class="arrow">→</span>
+          </button>
+          <button class="btn-outline btn-lg" onclick="showPage('login')">
+            I have an account
+          </button>
         </div>
-        <div class="stat-pill">
-          <span class="stat-icon">🎯</span>
-          <span>Personalized</span>
+        <div class="hero-stats">
+          <div class="stat"><strong>10k+</strong><span>Students</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>95%</strong><span>Success Rate</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
         </div>
-        <div class="stat-pill">
-          <span class="stat-icon">📈</span>
-          <span>Optimized</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to excel</h2>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon">🧠</div>
+          <h3>AI Study Plans</h3>
+          <p>Generate personalized timetables based on your subjects, hours, and exam dates.</p>
+        </div>
+        <div class="feat-card feat-card--accent">
+          <div class="feat-icon">📊</div>
+          <h3>Progress Tracking</h3>
+          <p>Visualize your study hours and task completion with beautiful charts.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">✅</div>
+          <h3>Smart Tasks</h3>
+          <p>Manage daily tasks with priorities, deadlines, and completion tracking.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🎯</div>
+          <h3>Goal Setting</h3>
+          <p>Set academic goals and get reminders to keep you on track every day.</p>
+        </div>
+        <div class="feat-card feat-card--accent">
+          <div class="feat-icon">📅</div>
+          <h3>Visual Planner</h3>
+          <p>Calendar-based planner so you always know what to study and when.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">⚡</div>
+          <h3>Instant Insights</h3>
+          <p>Quick dashboard stats — hours studied, tasks done, and weekly streaks.</p>
         </div>
       </div>
-    </header>
-
-    <!-- Main Input Card -->
-    <main class="planner-card">
-      <div class="card-label">
-        <span class="label-dot"></span>
-        Ready to plan
-      </div>
-
-      <h2 class="card-title">How many hours can you study today?</h2>
-      <p class="card-desc">Enter your available time and we'll structure it for maximum focus and retention.</p>
-
-      <div class="input-group">
-        <div class="input-wrapper">
-          <span class="input-icon">🕐</span>
-          <input
-            id="hours"
-            type="number"
-            min="1"
-            max="24"
-            placeholder="e.g. 6"
-            aria-label="Study hours"
-          />
-          <span class="input-unit">hrs</span>
-        </div>
-
-        <button class="generate-btn" onclick="generatePlan()">
-          <span class="btn-text">Generate My Plan</span>
-          <span class="btn-arrow">→</span>
-        </button>
-      </div>
-
-      <!-- Quick select chips -->
-      <div class="quick-select">
-        <span class="quick-label">Quick pick:</span>
-        <button class="chip" onclick="setHours(2)">2h</button>
-        <button class="chip" onclick="setHours(4)">4h</button>
-        <button class="chip" onclick="setHours(6)">6h</button>
-        <button class="chip" onclick="setHours(8)">8h</button>
-      </div>
-    </main>
-
-    <!-- Output Section -->
-    <section id="output" class="output-section" aria-live="polite"></section>
+    </section>
 
     <!-- Footer -->
-    <footer class="app-footer">
-      <p>Powered by <strong>Eduvora</strong> · Study smarter, not harder.</p>
+    <footer class="land-footer">
+      <div class="land-logo">
+        <span class="logo-mark">E</span>
+        <span>Eduvora</span>
+      </div>
+      <p>© 2025 Eduvora. Built for students, by students.</p>
     </footer>
-
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    function setHours(n) {
-      document.getElementById('hours').value = n;
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
+  <!-- ===================== LOGIN PAGE ===================== -->
+  <div id="page-login" class="page auth-page">
+    <div class="auth-left">
+      <div class="auth-orb auth-orb-1"></div>
+      <div class="auth-orb auth-orb-2"></div>
+      <div class="auth-brand" onclick="showPage('landing')">
+        <span class="logo-mark">E</span>
+        <span>Eduvora</span>
+      </div>
+      <div class="auth-left-content">
+        <h2>Welcome back,<br/><span class="grad-text">scholar.</span></h2>
+        <p>Your study plans are waiting for you.</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-card">
+        <h2>Login</h2>
+        <p class="auth-sub">Enter your credentials to continue</p>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-pass" placeholder="••••••••"/>
+        </div>
+        <button class="btn-primary btn-full" onclick="doLogin()">Login →</button>
+        <p class="auth-switch">
+          Don't have an account?
+          <a onclick="showPage('signup')">Sign up</a>
+        </p>
+      </div>
+    </div>
+  </div>
 
+  <!-- ===================== SIGNUP PAGE ===================== -->
+  <div id="page-signup" class="page auth-page">
+    <div class="auth-left">
+      <div class="auth-orb auth-orb-1"></div>
+      <div class="auth-orb auth-orb-2"></div>
+      <div class="auth-brand" onclick="showPage('landing')">
+        <span class="logo-mark">E</span>
+        <span>Eduvora</span>
+      </div>
+      <div class="auth-left-content">
+        <h2>Start your<br/><span class="grad-text">journey.</span></h2>
+        <p>Join thousands of students planning smarter.</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="auth-sub">Free forever. No credit card needed.</p>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="signup-name" placeholder="Alex Johnson"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signup-email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signup-pass" placeholder="••••••••"/>
+        </div>
+        <button class="btn-primary btn-full" onclick="doSignup()">Create Account →</button>
+        <p class="auth-switch">
+          Already have an account?
+          <a onclick="showPage('login')">Login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="page-app" class="page app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="logo-mark">E</span>
+        <span class="sidebar-brand-text">Eduvora</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" onclick="showSection('dashboard')" data-section="dashboard">
+          <span class="nav-icon">⊞</span><span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item" onclick="showSection('planner')" data-section="planner">
+          <span class="nav-icon">📅</span><span class="nav-label">Planner</span>
+        </button>
+        <button class="nav-item" onclick="showSection('ai-planner')" data-section="ai-planner">
+          <span class="nav-icon">🧠</span><span class="nav-label">AI Planner</span>
+          <span class="nav-badge">AI</span>
+        </button>
+        <button class="nav-item" onclick="showSection('tasks')" data-section="tasks">
+          <span class="nav-icon">✅</span><span class="nav-label">Tasks</span>
+        </button>
+        <button class="nav-item" onclick="showSection('progress')" data-section="progress">
+          <span class="nav-icon">📊</span><span class="nav-label">Progress</span>
+        </button>
+        <button class="nav-item" onclick="showSection('goals')" data-section="goals">
+          <span class="nav-icon">🎯</span><span class="nav-label">Goals</span>
+        </button>
+        <button class="nav-item" onclick="showSection('profile')" data-section="profile">
+          <span class="nav-icon">👤</span><span class="nav-label">Profile</span>
+        </button>
+      </nav>
+      <button class="sidebar-logout" onclick="doLogout()">
+        <span>⏻</span><span class="nav-label">Logout</span>
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="app-main">
+
+      <!-- Top Navbar -->
+      <header class="app-topbar">
+        <button class="hamburger" onclick="toggleSidebar()">☰</button>
+        <div class="topbar-title" id="topbar-title">Dashboard</div>
+        <div class="topbar-right">
+          <div class="topbar-user">
+            <div class="user-avatar" id="user-avatar">A</div>
+            <span id="topbar-username">Alex</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section class="app-section active" id="section-dashboard">
+        <div class="section-header">
+          <div>
+            <h1 id="welcome-msg">Hi, Alex 👋</h1>
+            <p class="section-sub">Here's your study overview for today.</p>
+          </div>
+          <div class="date-badge" id="today-date"></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-card-icon">⏱</div><div class="stat-card-info"><span class="stat-card-val">4.5h</span><span class="stat-card-label">Hours Studied</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">✅</div><div class="stat-card-info"><span class="stat-card-val" id="stat-tasks">7</span><span class="stat-card-label">Tasks Done</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">🔥</div><div class="stat-card-info"><span class="stat-card-val">5</span><span class="stat-card-label">Day Streak</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">🎯</div><div class="stat-card-info"><span class="stat-card-val" id="stat-goals">3</span><span class="stat-card-label">Goals Active</span></div></div>
+        </div>
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card-header"><h3>Today's Tasks</h3><button class="btn-sm" onclick="showSection('tasks')">View All</button></div>
+            <div id="dash-tasks-list" class="dash-task-list"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Study Completion</h3><span class="prog-pct" id="dash-prog-pct">0%</span></div>
+            <div class="progress-bar-wrap"><div class="progress-bar-fill" id="dash-progress" style="width:0%"></div></div>
+            <p class="prog-note">Daily task completion rate</p>
+            <div class="card-header" style="margin-top:24px"><h3>Weekly Overview</h3></div>
+            <div class="weekly-bars" id="weekly-bars"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLANNER -->
+      <section class="app-section" id="section-planner">
+        <div class="section-header">
+          <div><h1>Planner</h1><p class="section-sub">Organize your study sessions by day.</p></div>
+          <button class="btn-primary" onclick="openAddTaskModal()">+ Add Task</button>
+        </div>
+        <div class="card" style="margin-bottom:24px">
+          <div class="calendar-nav">
+            <button class="btn-ghost" onclick="changeWeek(-1)">← Prev</button>
+            <span id="cal-week-label"></span>
+            <button class="btn-ghost" onclick="changeWeek(1)">Next →</button>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+      </section>
+
+      <!-- AI PLANNER -->
+      <section class="app-section" id="section-ai-planner">
+        <div class="section-header">
+          <div><h1>AI Planner <span class="ai-badge">AI</span></h1><p class="section-sub">Generate a smart study timetable instantly.</p></div>
+        </div>
+        <div class="ai-layout">
+          <div class="card ai-form-card">
+            <h3>Configure Your Plan</h3>
+            <div class="form-group"><label>Subjects (comma separated)</label><input type="text" id="ai-subjects" placeholder="Math, Physics, Chemistry"/></div>
+            <div class="form-group"><label>Study Hours Per Day</label><input type="number" id="ai-hours" placeholder="6" min="1" max="16"/></div>
+            <div class="form-group"><label>Exam Date</label><input type="date" id="ai-exam-date"/></div>
+            <div class="form-group">
+              <label>Difficulty Level</label>
+              <select id="ai-difficulty">
+                <option value="easy">Easy — Light revision</option>
+                <option value="medium" selected>Medium — Balanced</option>
+                <option value="hard">Hard — Intensive prep</option>
+              </select>
+            </div>
+            <button class="btn-primary btn-full" onclick="generateAIPlan()">🧠 Generate My Plan</button>
+          </div>
+          <div class="card ai-output-card" id="ai-output">
+            <div class="ai-placeholder">
+              <div class="ai-placeholder-icon">🧠</div>
+              <p>Fill in the form and click <strong>Generate My Plan</strong> to see your personalized timetable here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TASKS -->
+      <section class="app-section" id="section-tasks">
+        <div class="section-header">
+          <div><h1>Tasks</h1><p class="section-sub">Manage your daily study tasks.</p></div>
+          <button class="btn-primary" onclick="openAddTaskModal()">+ New Task</button>
+        </div>
+        <div class="tasks-filters">
+          <button class="filter-btn active" onclick="filterTasks('all', this)">All</button>
+          <button class="filter-btn" onclick="filterTasks('pending', this)">Pending</button>
+          <button class="filter-btn" onclick="filterTasks('done', this)">Completed</button>
+        </div>
+        <div class="card">
+          <div id="tasks-list" class="tasks-list"></div>
+          <div id="tasks-empty" class="empty-state" style="display:none"><p>🎉 No tasks here! Add one above.</p></div>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="app-section" id="section-progress">
+        <div class="section-header">
+          <div><h1>Progress</h1><p class="section-sub">Track your study performance over time.</p></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-card-icon">📚</div><div class="stat-card-info"><span class="stat-card-val">32h</span><span class="stat-card-label">This Week</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">✅</div><div class="stat-card-info"><span class="stat-card-val" id="prog-done">0</span><span class="stat-card-label">Tasks Completed</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">📈</div><div class="stat-card-info"><span class="stat-card-val">78%</span><span class="stat-card-label">Efficiency Score</span></div></div>
+          <div class="stat-card"><div class="stat-card-icon">🔥</div><div class="stat-card-info"><span class="stat-card-val">5</span><span class="stat-card-label">Day Streak</span></div></div>
+        </div>
+        <div class="prog-grid">
+          <div class="card"><h3>Weekly Study Hours</h3><div class="bar-chart" id="hours-chart"></div></div>
+          <div class="card">
+            <h3>Task Completion Rate</h3>
+            <div class="donut-wrap"><div class="donut" id="donut-chart"><div class="donut-center" id="donut-label">0%</div></div></div>
+            <div class="donut-legend">
+              <span class="leg-dot" style="background:var(--accent)"></span> Completed
+              <span class="leg-dot" style="background:var(--border);margin-left:16px"></span> Pending
+            </div>
+          </div>
+        </div>
+        <div class="card"><h3>Subject Breakdown</h3><div class="subject-bars" id="subject-bars"></div></div>
+      </section>
+
+      <!-- GOALS -->
+      <section class="app-section" id="section-goals">
+        <div class="section-header">
+          <div><h1>Goals</h1><p class="section-sub">Set and track your academic goals.</p></div>
+          <button class="btn-primary" onclick="openAddGoalModal()">+ Add Goal</button>
+        </div>
+        <div class="card" style="margin-bottom:24px">
+          <div id="goals-list" class="goals-list"></div>
+          <div id="goals-empty" class="empty-state" style="display:none"><p>🎯 No goals yet. Set one to get started!</p></div>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="app-section" id="section-profile">
+        <div class="section-header">
+          <div><h1>Profile</h1><p class="section-sub">Your account and study preferences.</p></div>
+          <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+        </div>
+        <div class="profile-grid">
+          <div class="card profile-card">
+            <div class="profile-avatar-wrap">
+              <div class="profile-avatar" id="profile-avatar">A</div>
+              <button class="btn-sm" onclick="alert('Photo upload coming soon!')">Change Photo</button>
+            </div>
+            <div class="form-group"><label>Full Name</label><input type="text" id="prof-name" placeholder="Alex Johnson"/></div>
+            <div class="form-group"><label>Email</label><input type="email" id="prof-email" placeholder="alex@example.com"/></div>
+            <div class="form-group"><label>Bio</label><textarea id="prof-bio" placeholder="Tell us about yourself..." rows="3"></textarea></div>
+          </div>
+          <div class="card profile-prefs">
+            <h3>Study Preferences</h3>
+            <div class="form-group"><label>Daily Study Goal (hours)</label><input type="number" id="prof-hours" placeholder="8" min="1" max="16"/></div>
+            <div class="form-group">
+              <label>Preferred Study Time</label>
+              <select id="prof-time">
+                <option>Morning (6am – 12pm)</option>
+                <option>Afternoon (12pm – 6pm)</option>
+                <option selected>Evening (6pm – 11pm)</option>
+                <option>Late Night (11pm – 3am)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Focus Style</label>
+              <select id="prof-style">
+                <option>Pomodoro (25 min focus)</option>
+                <option selected>Deep Work (50 min focus)</option>
+                <option>Flow State (90 min focus)</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Subjects</label><input type="text" id="prof-subjects" placeholder="Math, Physics, CS"/></div>
+            <h3 style="margin-top:28px">Notifications</h3>
+            <div class="toggle-row"><span>Daily reminders</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><span>Task deadlines</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><span>Weekly summary</span><label class="toggle"><input type="checkbox"/><span class="toggle-slider"></span></label></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- MODAL: Add Task -->
+  <div id="modal-task" class="modal-overlay" onclick="closeModal('modal-task')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3>Add New Task</h3><button class="modal-close" onclick="closeModal('modal-task')">✕</button></div>
+      <div class="form-group"><label>Task Name</label><input type="text" id="new-task-name" placeholder="e.g. Read Chapter 5"/></div>
+      <div class="form-group"><label>Subject</label><input type="text" id="new-task-subject" placeholder="e.g. Physics"/></div>
+      <div class="form-group">
+        <label>Priority</label>
+        <select id="new-task-priority">
+          <option value="high">🔴 High</option>
+          <option value="medium" selected>🟡 Medium</option>
+          <option value="low">🟢 Low</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Date</label><input type="date" id="new-task-date"/></div>
+      <button class="btn-primary btn-full" onclick="addTask()">Add Task</button>
+    </div>
+  </div>
+
+  <!-- MODAL: Add Goal -->
+  <div id="modal-goal" class="modal-overlay" onclick="closeModal('modal-goal')">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header"><h3>Add New Goal</h3><button class="modal-close" onclick="closeModal('modal-goal')">✕</button></div>
+      <div class="form-group"><label>Goal Title</label><input type="text" id="new-goal-title" placeholder="e.g. Score 90+ in Math"/></div>
+      <div class="form-group"><label>Target Date</label><input type="date" id="new-goal-date"/></div>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="new-goal-category">
+          <option>Academic</option><option>Productivity</option><option>Health</option><option>Other</option>
+        </select>
+      </div>
+      <button class="btn-primary btn-full" onclick="addGoal()">Add Goal</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
